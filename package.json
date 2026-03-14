@@ -1,6 +1,7 @@
 {
   "name": "task-manager-monorepo",
   "private": true,
+  "packageManager": "pnpm@9",
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
