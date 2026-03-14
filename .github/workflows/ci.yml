@@ -3,8 +3,8 @@ name: CI Pipeline
 on:
   push:
     branches:
-      - test-ci
       - main
+      - test-ci
   pull_request:
     branches:
       - main
@@ -22,11 +22,13 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
 
       - name: Install Dependencies
         run: pnpm install
 
-      - name: Build Project
+      - name: Build
         run: pnpm turbo run build
